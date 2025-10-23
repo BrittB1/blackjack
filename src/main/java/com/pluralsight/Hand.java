@@ -5,11 +5,18 @@ import java.util.ArrayList;
 
     public class Hand {
 
+        private final String playerName;
         private ArrayList<Card> cards;
 
-        public Hand(){
+        public Hand(String playerName){
+            this.playerName = playerName;
             cards = new ArrayList<>();
         }
+
+        public String getPlayerName() {
+            return playerName;
+        }
+
         // A Card is dealt to the Hand and the Hand is responsible
 // to store the card
         public void deal(Card card){
@@ -28,6 +35,15 @@ import java.util.ArrayList;
                 card.flip(); // hide the card again
             }
             return value;
+        }
+
+        public void displayHand() {
+            for (Card card : cards) {
+                if (!card.isFaceUp()) {
+                    card.flip();
+                    System.out.println(card.getSuit() + " " + card.getValue());
+                }
+            }
         }
     }
 

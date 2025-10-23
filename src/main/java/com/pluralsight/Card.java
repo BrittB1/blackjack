@@ -38,13 +38,13 @@ public class Card {
 // A = 11
 // K, Q, J = 10
 // all numeric cards are equal to their face value
-switch (this.value) {
-    case "A": return 11;
-    case "K": return ;
-    case "Q": return;
-    case "J": return 10;
-}
-            return 1;
+            return switch (this.value) {
+                case "A" -> 11;
+                case "K" -> 10;
+                case "Q" -> 10;
+                case "J" -> 10;
+                default -> 1;
+            };
         } else {
             return 0;
         }
